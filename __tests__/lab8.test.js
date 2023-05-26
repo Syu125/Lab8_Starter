@@ -123,10 +123,9 @@ describe('Basic user flow for Website', () => {
     // TODO - Step 5
     // At this point he item 'cart' in localStorage should be 
     // '[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]', check to make sure it is
-    const localStorage = await page.evaluate(() => {
+    expect(await page.evaluate(() => {
       return localStorage.getItem('cart');
-    });
-    expect(localStorage).toBe('[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]');
+    })).toBe('[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]');
   });
 
   // Checking to make sure that if you remove all of the items from the cart that the cart
@@ -178,9 +177,8 @@ describe('Basic user flow for Website', () => {
     console.log('Checking the localStorage...');
     // TODO - Step 8
     // At this point he item 'cart' in localStorage should be '[]', check to make sure it is
-    const localStorage = await page.evaluate(() => {
+    expect(await page.evaluate(() => {
       return localStorage.getItem('cart');
-    });
-    expect(localStorage).toBe('[]');
+    })).toBe('[]');
   });
 });
